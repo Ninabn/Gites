@@ -29,12 +29,6 @@ class Database{
 
     }
 
-    public function getPriceGites(){
-
-        
-    }
-
-    
         public function getLastGites(){
             $db = $this->getPDO();
     
@@ -43,8 +37,8 @@ class Database{
     
     <div class="md:flex md:grid md:grid-flow-col md:grid-cols-2 grid-rows-2">
     
+   
         <?php 
-        
                 foreach($sql as $row){
     
                 $date_formater = new DateTime($row['date_depart']); 
@@ -59,11 +53,13 @@ class Database{
                     <p><?php echo 'Prix : ' .$row['price_gite'] ?> €</p>
                 </div>    
         </div>
-    </div>
-    
     
     <?php
             }
+?>
+        </div>
+
+<?php
         }
     
         public function userConnexion(){
