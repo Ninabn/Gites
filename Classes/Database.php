@@ -31,14 +31,14 @@ class Database{
 
     public function getPriceGites(){
 
-        echo "fgcvjtyvkuvbkuyfjty";
+        
     }
 
     
         public function getLastGites(){
             $db = $this->getPDO();
     
-            $sql = $db->query ("SELECT * FROM gites ORDER BY `id_gite` DESC LIMIT 10");
+            $sql = $db->query ("SELECT * FROM gitesinfo ORDER BY `id_gite` DESC LIMIT 10");
     ?>
     
     <div class="md:flex md:grid md:grid-flow-col md:grid-cols-2 grid-rows-2">

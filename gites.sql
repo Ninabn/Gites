@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 01 mars 2021 à 10:48
+-- Généré le : mer. 03 mars 2021 à 09:08
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -24,20 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `admins_users`
---
-
-DROP TABLE IF EXISTS `admins_users`;
-CREATE TABLE IF NOT EXISTS `admins_users` (
-  `id_admin` int(11) NOT NULL AUTO_INCREMENT,
-  `name_admin` varchar(250) NOT NULL,
-  `password_admin` varchar(250) NOT NULL,
-  PRIMARY KEY (`id_admin`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `categories_gites`
 --
 
@@ -51,11 +37,11 @@ CREATE TABLE IF NOT EXISTS `categories_gites` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `gites`
+-- Structure de la table `gitesinfo`
 --
 
-DROP TABLE IF EXISTS `gites`;
-CREATE TABLE IF NOT EXISTS `gites` (
+DROP TABLE IF EXISTS `gitesinfo`;
+CREATE TABLE IF NOT EXISTS `gitesinfo` (
   `id_gite` int(11) NOT NULL AUTO_INCREMENT,
   `name_gite` varchar(250) NOT NULL,
   `description_gite` varchar(250) NOT NULL,
@@ -69,7 +55,16 @@ CREATE TABLE IF NOT EXISTS `gites` (
   `date_depart` datetime NOT NULL,
   `categories_gite` varchar(250) NOT NULL,
   PRIMARY KEY (`id_gite`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `gitesinfo`
+--
+
+INSERT INTO `gitesinfo` (`id_gite`, `name_gite`, `description_gite`, `price_gite`, `img_gite`, `nbr_chambre`, `nbr_sdb`, `dispo_gite`, `zone_geo`, `date_arrivee`, `date_depart`, `categories_gite`) VALUES
+(1, 'nom', 'fqeriothpiugnb h nnf nfndtf bncdgfty ', 20.03, 'https://picsum.photos/200', 5, 2, 1, '', '2021-03-01 14:27:37', '2021-03-19 14:27:37', ''),
+(2, 'uiltguy', 'è_tè_tèo_tgè_oto_ètghuu', 202.03, 'https://picsum.photos/200', 5, 2, 1, '', '2021-03-17 15:05:52', '2021-03-02 15:05:52', ''),
+(3, 'uiekgbkduybfv', 'eruiqglbvhl_irshlg', 500, 'https://picsum.photos/200', 5, 86, 1, '', '2021-03-10 15:35:47', '2021-03-31 15:35:47', '');
 
 -- --------------------------------------------------------
 
@@ -83,7 +78,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name_user` varchar(250) NOT NULL,
   `password_user` varchar(250) NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id_user`, `name_user`, `password_user`) VALUES
+(1, 'user', '1234');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
