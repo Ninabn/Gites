@@ -59,7 +59,10 @@
                 </a>
                 </a>
                 <div class="flex justify-center">
-                    <button class="font-bold bg-red-700 hover:bg-red-600 rounded p-2 text-white">Deconnexion</button>
+                    <a href="deconnexion.php" class="font-bold bg-red-700 hover:bg-red-600 rounded p-2 text-white">Deconnexion</a>
+                  </div>
+                  <div class="flex justify-center">
+                    <a href="gestionnaire.php" class="font-bold bg-yellow-700 hover:bg-yellow-600 rounded p-2 text-white">Gestionnaire</a>
                   </div>
               </div>
             </div>

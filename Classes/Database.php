@@ -94,5 +94,56 @@ class Database{
         
         }
 
+
+        public function getGites(){
+            $db = $this->getPDO();
+    
+            $sql = $db->query ("SELECT * FROM gitesinfo ORDER BY `id_gite`");
+    ?>
+    
+    
+        <?php 
+                foreach($sql as $row){
+    
+                $date_formater = new DateTime($row['date_depart']); 
+        ?>
+    
+        <div class="flex flex-col md:flex-row m-10 md:w-9/12 mx-auto ">
+                <img class="rounded w-6/12 md:w-4/12 m-auto md:m-5" src="<?= $row['img_gite'] ?>" alt="">
+    
+                <div class="flex flex-col p-5">
+                    <p class="font-bold"><?php echo $row['name_gite'] ?></p>
+                    <p><?php echo $row['description_gite'] ?> </p>
+                    <p><?php echo 'Prix : ' .$row['price_gite'] ?> €</p>
+
+                    <div class="flex text-white ">
+                        <button type="submit" name="delete" class="bg-red-500 m-3 rounded font-bold p-2 ">Supprimer <i class="fa fa-trash fa-lg p-2" aria-hidden="true"></i></button>
+
+                        <button type="submit" class="bg-yellow-500 m-3 rounded font-bold p-2">Détails <i class="fa fa-info fa-lg p-2" aria-hidden="true"></i></button>  
+                        <button type="submit" class="bg-green-500 m-3 rounded font-bold p-2">Metter à jour <i class="fa fa-pencil-square-o fa-lg p-2" aria-hidden="true"></i></button>
+                    </div>
+
+                </div>  
+                
+        </div>
+    
+    <?php
+            }
+?>
+     
+
+<?php
+        }
+
+        public function deleteGites(){
+            $id = $_GET['id_gite'];
+
+            $sql = "DELETE FROM gites WHERE gitesinfo = $id";
+
+            $db->exec($sql);
+            echo "Produit supprimer";
+            $db = null;
+                    }
+
 }
 
