@@ -9,16 +9,14 @@ ob_start();
 
 <a href="ajoutGite.php" class="bg-blue-500 rounded p-2 text-white ml-5 font-bold items-center"><i class="fa fa-plus fa-lg p-2" aria-hidden="true"></i>Ajouter</a>
 
+
 <?php
 $gite = new Database;
 $gite->getGites();
-
+if(isset($_POST["delete"])){
+  $gite->deleteGites();
 ?>
 
-<?php
-if(isset($_POST["delete"])){
-  $user->deleteGites();
-  ?>
 
 <?php
 }

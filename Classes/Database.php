@@ -13,6 +13,9 @@ class Database{
         }
     }
 
+
+
+
     public function newUser(){
         $db = $this->getPDO();        
 
@@ -29,6 +32,10 @@ class Database{
 
     }
 
+
+
+
+
         public function getLastGites(){
             $db = $this->getPDO();
     
@@ -44,7 +51,7 @@ class Database{
                 $date_formater = new DateTime($row['date_depart']); 
         ?>
     
-        <div class="flex m-10">
+        <div class="flex m-auto my-5">
                 <img class="rounded" src="<?= $row['img_gite'] ?>" alt="">
     
                 <div class="flex flex-col p-5">
@@ -61,6 +68,10 @@ class Database{
 
 <?php
         }
+
+
+
+
     
         public function userConnexion(){
             $db = $this->getPDO();
@@ -90,9 +101,10 @@ class Database{
                 echo "Les champs n'ont pas été remplit";
                 }
 
-            
-        
         }
+
+
+
 
 
         public function getGites(){
@@ -116,11 +128,16 @@ class Database{
                     <p><?php echo $row['description_gite'] ?> </p>
                     <p><?php echo 'Prix : ' .$row['price_gite'] ?> €</p>
 
+
                     <div class="flex text-white ">
-                        <button type="submit" name="delete" class="bg-red-500 m-3 rounded font-bold p-2 ">Supprimer <i class="fa fa-trash fa-lg p-2" aria-hidden="true"></i></button>
+
+                    <form action="gestionnaire.php" method="POST">
+                    
+                        <button value="<?= $row['id_gite'] ?>" type="submit" name="delete" class="bg-red-500 m-3 rounded font-bold p-2 ">Supprimer <i class="fa fa-trash fa-lg p-2" aria-hidden="true"></i></button>
 
                         <button type="submit" class="bg-yellow-500 m-3 rounded font-bold p-2">Détails <i class="fa fa-info fa-lg p-2" aria-hidden="true"></i></button>  
                         <button type="submit" class="bg-green-500 m-3 rounded font-bold p-2">Metter à jour <i class="fa fa-pencil-square-o fa-lg p-2" aria-hidden="true"></i></button>
+                    </form>
                     </div>
 
                 </div>  
@@ -135,14 +152,49 @@ class Database{
 <?php
         }
 
+
+
+
         public function deleteGites(){
-            $id = $_GET['id_gite'];
+            $db = $this->getPDO();
+            $id = $_POST['delete'];
+            var_dump($_POST['delete']);
 
-            $sql = "DELETE FROM gites WHERE gitesinfo = $id";
+           
+            $sql = "DELETE FROM gitesinfo WHERE id_gite = $id";
 
+            var_dump($sql);
             $db->exec($sql);
-            echo "Produit supprimer";
-            $db = null;
+            //$db = null;
+            
+            
+
+                    }
+
+
+
+
+                    
+        public function addGites(){
+            $db = $this->getPDO();
+
+            $name =htmlspecialchars($_POST['']);
+            $description = htmlspecialchars($_POST['']);
+            $image = htmlspecialchars($_POST['img']);
+            $price = htmlspecialchars($_POST['']);
+            $room = htmlspecialchars($_POST['']);
+            $sdb = htmlspecialchars($_POST['']);
+
+           
+            var_dump($name);
+
+
+            $sql = "INSERT INTO gitesinfo (name_gite, description_gite, image_gite, price_gite, nbr_chambre, nbr_sdb )
+            VALUES ('$name', '$description', '$image', '$price', '$room', '$sdb')";
+
+            $bdd->exec($sql);
+            
+            header('Location: http://localhost/gites/');
                     }
 
 }

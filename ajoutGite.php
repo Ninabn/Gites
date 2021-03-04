@@ -11,21 +11,21 @@ ob_start();
 
 <div class="">
 
-    <form action=""> 
+    <form action="" method="POST"> 
         
         <div class="w-6/12 m-auto font-bold mt-14">
         
             <div class="flex flex-col">
                 <label for="">Nom du gites</label>
-                <input class="border border-black rounded p-2 mb-5" type="text">
+                <input name="name" class="border border-black rounded p-2 mb-5" type="text">
             </div>
             <div class="flex flex-col">
                 <label for="">Description</label>
-                <input class="border border-black rounded p-2 mb-5 " type="text">
+                <input name="description" class="border border-black rounded p-2 mb-5 " type="text">
             </div>
             <div class="flex flex-col">
                 <label for="">Image</label>
-                <input class="border border-black rounded p-2 mb-5" type="text">
+                <input name="img" class="border border-black rounded p-2 mb-5" type="text">
             </div>
             <div class="flex flex-col">
                 <label for="">Prix (nuit)</label>
@@ -50,7 +50,7 @@ ob_start();
 
             </div>
             <button class="bg-blue-600 hover:bg-blue-500 p-2 rounded text-white mb-10" type="submit">Ajouter</button>
-            <button class="bg-red-600 hover:bg-red-500 p-2 rounded text-white" type="submit">Retour</button>
+            <a href="gestionnaire.php" class="bg-red-600 hover:bg-red-500 p-2 rounded text-white" type="submit">Retour</a>
         </div>
 
     </form>
